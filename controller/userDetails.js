@@ -1,5 +1,6 @@
 async function userDetailsController(req, res) {
     try {
+        console.log("userId", req.userId)
         
     } catch (err) {
         res.status(400).json({
