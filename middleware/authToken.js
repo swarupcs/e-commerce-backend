@@ -1,6 +1,30 @@
+const jwt = require('jsonwebtoken');
+
 async function authToken(req, res, next) {
     try {
-        const token = req.cookies?.token || req.header;
+        const token = req.cookies?.token ;
+        console.log("token", token);
+
+        jwt.verify(token, process.env.TOKEN_SECRET_KEY, function(err, decoded) {
+            console.log(err);
+            console.log("decoded", decoded);
+
+            if(err) {
+                console.log("error auth", err)
+            }
+
+            req.user.id = decoded._id
+
+            next()
+
+            if(!token) {
+                return res.json({
+                    message: "User not Login",
+                    error: true,
+                    success: false,
+                })
+            }
+        });
 
         console.log("token -", token)
 
