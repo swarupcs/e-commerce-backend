@@ -2,16 +2,27 @@ const express = require('express');
 
 const router = express.Router()
 
-const userSignUpController = require("../controller/userSignUp");
-const userSignInController = require('../controller/userSignIn');
-const userDetailsController = require('../controller/userDetails');
-const authToken = require('../middleware/authToken');
-const userLogout = require('../controller/userLogout');
-const allUser = require('../controller/allUser');
-const updateUser = require('../controller/updateUser');
-const UploadController = require('../controller/uploadProduct');
-const getProductController = require('../controller/getProduct');
-const updateProductController = require('../controller/updateProduct');
+// const userSignUpController = require("../controller/user/userSignUp");
+// const userSignInController = require('../controller/user/userSignIn');
+// const userDetailsController = require('../controller/user/userDetails');
+// const authToken = require('../middleware/authToken');
+// const userLogout = require('../controller/user/userLogout');
+// const allUser = require('../controller/user/allUser');
+// const updateUser = require('../controller/user/updateUser');
+// const UploadController = require('../controller/product/uploadProduct');
+// const getProductController = require('../controller/product/getProduct');
+// const updateProductController = require('../controller/product/updateProduct');
+
+const userSignUpController = require("../controller/user/userSignUp");
+const userSignInController = require("../controller/user/userSignIn");
+const userDetailsController = require("../controller/user/userDetails");
+const authToken =  require('../middleware/authToken');
+const userLogout = require('../controller/user/userLogout');
+const allUser = require("../controller/user/allUser");
+const updateUser = require('../controller/user/updateUser');
+const UploadController = require("../controller/product/uploadProduct");
+const getProductController = require("../controller/product/getProduct");
+const updateProductController = require("../controller/product/updateProduct");
 
 router.post("/signup", userSignUpController);
 router.post("/signin", userSignInController);
